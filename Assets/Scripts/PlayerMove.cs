@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -73,15 +74,23 @@ public class PlayerMove : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
+
         else if (collision.gameObject.tag == "Finish")
         {
             Debug.Log("목표지점 도달");
+            ChangeMap();
+
 
         }
 
         Target.SetActive(true);
     }
     
+    void ChangeMap()
+    {
+        SceneManager.LoadScene(1);
+    }
+
 
 
 
