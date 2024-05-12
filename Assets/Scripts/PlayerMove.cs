@@ -80,15 +80,27 @@ public class PlayerMove : MonoBehaviour
             Debug.Log("목표지점 도달");
             ChangeMap();
 
+            
 
         }
 
         Target.SetActive(true);
     }
-    
+
     void ChangeMap()
     {
-        SceneManager.LoadScene(1);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        
+        if (currentSceneIndex == 0)
+        {
+            SceneManager.LoadScene("Stage1");
+        }
+        else if (currentSceneIndex == 1)
+        {
+            SceneManager.LoadScene("Stage2");
+        }
+        
     }
 
 
